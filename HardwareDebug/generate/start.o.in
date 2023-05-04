@@ -1,0 +1,1 @@
+-mcpu=cortex-a9 -marm -mlittle-endian -mfloat-abi=soft -fdiagnostics-parseable-fixits -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wnull-dereference -Wstack-usage=100 -g -x assembler-with-cpp -MMD -MP -MF"generate/start.d" -MT"generate/start.o" -c -o "generate/start.o" "../generate/start.S"

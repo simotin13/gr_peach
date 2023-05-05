@@ -39,15 +39,6 @@
      cmp    a3, a1
      bne    .next
 
-vfp_init:
-#ifndef __SOFTFP__
-    /* Initialize VFP setting */
-     ldr	r0,=(0xF <<20)
-     mcr	p15, 0, r0, c1, c0, 2
-     mov	r3,#0x40000000
-     vmsr	fpexc, r3
-#endif
-
 /* load data section from ROM to RAM */
 
     .next1:

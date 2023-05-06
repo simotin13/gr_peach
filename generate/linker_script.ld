@@ -5,20 +5,20 @@ MEMORY {
 }
 SECTIONS
 {
-	.fvectors 0x20020000 : AT (0x20020000)
+	.fvectors 0x18000000 : AT (0x18000000)
 	{
 		KEEP(*(.fvectors))
-	} > RAM
-	.text 0x20020100 : AT (0x20020100)
+	} > SPIBSC
+	.text 0x18000100 : AT (0x18000100)
 	{
 		*(.text)
-	} > RAM
+	} > SPIBSC
 	.rodata : 
 	{
 		*(.rodata)
 		*(.rodata.*)
 		_erodata = .;
-	} > RAM
+	} > SPIBSC
 	.tors : 
 	{
 		__CTOR_LIST__ = .;
@@ -34,15 +34,15 @@ SECTIONS
 		__DTOR_END__ = .;
 		. = ALIGN(2);
 		_mdata = .;
-	} > RAM
-	.data 0x20060100 : AT (_mdata)
+	} > SPIBSC
+	.data 0x20002000 : AT (_mdata)
 	{
 		_data = .;
 		*(.data)
 		*(.data.*)
 		_edata = .;
 	} > RAM
-	.bss : 
+	.bss 0x20003000 : AT (_mdata)
 	{
 		PROVIDE(__bss_start__ = .);
 		_bss = .;

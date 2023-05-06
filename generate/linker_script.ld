@@ -13,53 +13,11 @@ SECTIONS
 	{
 		*(.text)
 	} > RAM
-	.rvectors : 
-	{
-		_rvectors_start = .;
-		KEEP(*(.rvectors))
-		_rvectors_end = .;
-	} > RAM
-	.init : 
-	{
-		*(.init)
-	} > RAM
-	.ARM.extab : 
-	{
-		*(.ARM.extab* .gnu.linkonce.armextab.*)
-		PROVIDE_HIDDEN (__exidx_start = .);
-	} > RAM
-	.ARM.exidx : 
-	{
-		*(.ARM.exidx .gnu.linkonce.armexidx.*)
-		PROVIDE_HIDDEN (__exidx_end = .);
-	} > RAM
-	
-	.fini : 
-	{
-		*(.fini)
-	} > RAM
-	.got : 
-	{
-		*(.got)
-		*(.got.plt)
-	} > RAM
 	.rodata : 
 	{
 		*(.rodata)
 		*(.rodata.*)
 		_erodata = .;
-	} > RAM
-	.eh_frame_hdr : 
-	{
-		*(.eh_frame_hdr)
-	} > RAM
-	.eh_frame : 
-	{
-		*(.eh_frame)
-	} > RAM
-	.jcr : 
-	{
-		*(.jcr)
 	} > RAM
 	.tors : 
 	{
@@ -101,3 +59,5 @@ SECTIONS
 		_stack = .;
 	} > RAM
 }
+
+ENTRY(_PowerON_Reset)

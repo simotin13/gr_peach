@@ -1,5 +1,4 @@
     /*reset_program.asm*/
-    .list
     .section .text
     .global _PowerON_Reset    /*global Start routine */
     
@@ -17,6 +16,7 @@
      .word    __bss_start__
      .LC2:
      .word    __bss_end__
+
 /* data initialisation labels  */
      .LD1:
      .word    _mdata
@@ -42,7 +42,6 @@
 /* load data section from ROM to RAM */
 
     .next1:
-#ifndef SIMULATOR_DEBUG
     ldr    a3, .LD1
     ldr    a1,    .LD2
     ldr    a2, .LD3
@@ -56,7 +55,6 @@
     cmp    a1,    a2
     bne    .start
     .next2:
-#endif
 
 /* initialise stack pointer */
      .Lstack:

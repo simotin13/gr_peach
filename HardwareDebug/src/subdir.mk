@@ -4,16 +4,24 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../src/gr_peach.c 
+../src/gr_peach.c \
+../src/rspi2.c \
+../src/sci0.c 
 
 LST += \
-gr_peach.lst 
+gr_peach.lst \
+rspi2.lst \
+sci0.lst 
 
 C_DEPS += \
-./src/gr_peach.d 
+./src/gr_peach.d \
+./src/rspi2.d \
+./src/sci0.d 
 
 OBJS += \
-./src/gr_peach.o 
+./src/gr_peach.o \
+./src/rspi2.o \
+./src/sci0.o 
 
 MAP += \
 gr_peach.map 
